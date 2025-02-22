@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anki Card - {{ card.expression }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="anki-card">
+            <h1>{{ card.expression }}</h1>
+            
+            <div class="pronunciation-section">
+                <p class="phonetic">{{ card.phonetic }}</p>
+            </div>
+
+            {% if card.image_url %}
+            <div class="image-section">
+                <img src="{{ card.image_url }}" alt="{{ card.expression }}">
+            </div>
+            {% endif %}
+
+            <div class="examples-section">
+                <h3>Usage Examples:</h3>
+                <ul>
+                    {% for example in card.usage_examples %}
+                    <li>{{ example }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <a href="/" class="back-button">Generate Another Card</a>
+    </div>
+</body>
+</html> 
