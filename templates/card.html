@@ -9,25 +9,19 @@
 <body>
     <div class="container">
         <div class="anki-card">
-            <h1>{{ card.expression }}</h1>
-            
-            <div class="pronunciation-section">
+            <div class="card-content">
+                <h2>{{ card.expression }}</h2>
                 <p class="phonetic">{{ card.phonetic }}</p>
-            </div>
-
-            {% if card.image_url %}
-            <div class="image-section">
-                <img src="{{ card.image_url }}" alt="{{ card.expression }}">
-            </div>
-            {% endif %}
-
-            <div class="examples-section">
-                <h3>Usage Examples:</h3>
+                <p class="explanation">{{ card.explanation }}</p>
+                <h3>Examples:</h3>
                 <ul>
                     {% for example in card.usage_examples %}
-                    <li>{{ example }}</li>
+                        <li>{{ example }}</li>
                     {% endfor %}
                 </ul>
+                {% if card.image_url %}
+                    <img src="{{ card.image_url }}" alt="Illustration for {{ card.expression }}">
+                {% endif %}
             </div>
         </div>
         

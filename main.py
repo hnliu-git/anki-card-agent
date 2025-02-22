@@ -21,7 +21,7 @@ async def home(request: Request):
 
 @app.post("/generate", response_class=HTMLResponse)
 async def generate_card(request: Request, expression: str = Form(...)):
-    card = agent.generate_anki_card(expression)
+    card = await agent.generate_anki_card(expression)
     return templates.TemplateResponse(
         "card.html", 
         {
