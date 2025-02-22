@@ -1,0 +1,7 @@
+fastapi
+openai
+uvicorn
+jinja2
+dataclasses
+python-dotenv
+python-multipart
